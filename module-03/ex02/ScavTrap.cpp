@@ -58,10 +58,6 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate(void) {
-  std::cout << "ScavTrap " << BLUE << "(" << _name << ") " << RESET;
-  if (_health > 0) {
-    std::cout << "in Gate keeper mode now." << std::endl;
-  } else {
-    std::cout << "can't turn into Gate keeper mode. It's dead. :(" << std::endl;
-  }
+  std::cout << "ScavTrap " << BLUE << "(" << _name << ") " << RESET
+            << "in Gate keeper mode now." << std::endl;
 }
