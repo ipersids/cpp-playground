@@ -53,7 +53,7 @@ void ScavTrap::attack(const std::string& target) {
   }
   std::cout << "ScavTrap " << BLUE << "(" << _name << ") " << RESET
             << "attacks " << target << ", causing " << _damage
-            << "points of damage!" << std::endl;
+            << " points of damage!" << std::endl;
   _energy--;
 }
 
