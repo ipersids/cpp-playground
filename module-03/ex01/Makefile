@@ -6,7 +6,7 @@
 #    By: ipersids <ipersids@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 00:23:08 by ipersids          #+#    #+#              #
-#    Updated: 2025/02/19 14:51:30 by ipersids         ###   ########.fr        #
+#    Updated: 2025/02/19 14:43:59 by ipersids         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ HDRS		:= -I.
 OBJ_DIR		:= obj
 
 # Sources and objects
-SRCS		:= ClapTrap.cpp
+SRCS		:= ClapTrap.cpp ScavTrap.cpp
 SRC_MAIN	:= main.cpp
 
 OBJS		:= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
