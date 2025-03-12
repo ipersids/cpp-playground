@@ -16,7 +16,13 @@ int main(void) {
 
   while (true) {
     std::cout << "PhoneBook> ";
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input)) {
+      std::cin.clear();
+      freopen("/dev/tty", "r", stdin);
+      std::cout << std::endl;
+      continue;
+    }
+
     if (input.empty()) {
       continue;
     }
