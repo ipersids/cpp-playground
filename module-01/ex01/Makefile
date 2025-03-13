@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ipersids <ipersids@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/13 12:47:58 by ipersids          #+#    #+#              #
-#    Updated: 2025/03/13 12:48:02 by ipersids         ###   ########.fr        #
+#    Created: 2025/03/13 12:48:12 by ipersids          #+#    #+#              #
+#    Updated: 2025/03/13 12:48:27 by ipersids         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ HDRS		:= -I.
 OBJ_DIR		:= obj
 
 # Sources and objects
-SRCS		:= newZombie.cpp randomChump.cpp Zombie.cpp
+SRCS		:= Zombie.cpp zombieHorde.cpp
 SRC_MAIN	:= main.cpp
 
 OBJS		:= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

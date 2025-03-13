@@ -4,26 +4,26 @@
  * @date 2025-03-13
  */
 
-#ifndef ZOMBIE_HPP_
-#define ZOMBIE_HPP_
+#ifndef ZOMBIE_EX01_HPP_
+#define ZOMBIE_EX01_HPP_
 
 #include <iostream>
 
 class Zombie {
  public:
-  Zombie() = delete;
+  Zombie();
   Zombie(const std::string& name);
   Zombie(const Zombie& other) = delete;
   Zombie& operator=(const Zombie& other) = delete;
   ~Zombie();
 
   void announce(void);
+  void setName(const std::string& name);
 
  private:
   std::string _name;
 };
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+Zombie* zombieHorde(int N, std::string name);
 
-#endif  // ZOMBIE_HPP_
+#endif  // ZOMBIE_EX01_HPP_
