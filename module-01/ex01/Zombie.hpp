@@ -8,6 +8,7 @@
 #define ZOMBIE_EX01_HPP_
 
 #include <iostream>
+#include <new>
 
 class Zombie {
  public:

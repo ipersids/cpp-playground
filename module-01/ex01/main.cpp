@@ -24,6 +24,9 @@ int main(void) {
   {
     int amount = 5;
     Zombie* horde = zombieHorde(amount, "Zorde");
+    if (!horde) {
+      return 1;
+    }
 
     for (int i = 0; i < amount; i++) {
       std::cout << "[" << i << "]: ";

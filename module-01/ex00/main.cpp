@@ -36,6 +36,9 @@ int main(void) {
             << std::endl;
   {
     Zombie* zabre = newZombie("Zabre");
+    if (!zabre) {
+      return 1;
+    }
     zabre->announce();
     delete zabre;
   }
