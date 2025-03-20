@@ -17,7 +17,7 @@ Fixed::Fixed(const int value) {
 
 Fixed::Fixed(const float value) {
   std::cout << "Float constructor called" << std::endl;
-  _number = static_cast<int>(std::round(static_cast<double>(value) * (1 << _point)));
+  _number = static_cast<int>(std::roundf(static_cast<double>(value) * (1 << _point)));
 }
 
 Fixed::Fixed(const Fixed& other) : _number(other._number) {

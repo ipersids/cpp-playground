@@ -1,7 +1,7 @@
 /**
  * @file Fixed.hpp
  * @author Julia Persidskaia
- * @date 2025-03-16
+ * @date 2025-03-20
 */
 
 #ifndef FIXED_EX00_HPP_
