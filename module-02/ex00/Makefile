@@ -6,7 +6,7 @@
 #    By: ipersids <ipersids@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/16 12:12:32 by ipersids          #+#    #+#              #
-#    Updated: 2025/03/16 12:12:34 by ipersids         ###   ########.fr        #
+#    Updated: 2025/03/20 13:46:24 by ipersids         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ HDRS		:= -I.
 OBJ_DIR		:= obj
 
 # Sources and objects
-SRCS		:= 
+SRCS		:= Fixed.cpp
 SRC_MAIN	:= main.cpp
 
 OBJS		:= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

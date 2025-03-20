@@ -16,8 +16,8 @@ class Fixed {
     Fixed& operator=(const Fixed& other);
     ~Fixed();
 
-    int getRawBits( void ) const;
-    void setRawBits( int const raw );
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
 
   private:
     int _number;
