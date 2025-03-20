@@ -1,14 +1,13 @@
 #include <iostream>
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void) {
   std::cout << BOLDGREEN << "\n**************** CLAPTRAP TESTS ****************"
             << RESET << std::endl;
-  std::cout << "-------------- TEST CONSTRUCTORS -------------\n"
-            << std::endl;
+  std::cout << "-------------- TEST CONSTRUCTORS -------------\n" << std::endl;
   ClapTrap clap_zero;
   ClapTrap clap_one("clap_One");
   ClapTrap clap_two(clap_one);
@@ -39,8 +38,7 @@ int main(void) {
 
   std::cout << BOLDBLUE << "\n**************** SCAVTRAP TEST ****************"
             << RESET << std::endl;
-  std::cout << "-------------- TEST CONSTRUCTORS -------------\n"
-            << std::endl;
+  std::cout << "-------------- TEST CONSTRUCTORS -------------\n" << std::endl;
   ScavTrap scav_zero;
   ScavTrap scav_one("scav_One");
   ScavTrap scav_two(scav_one);
@@ -74,10 +72,10 @@ int main(void) {
   scav_zero.guardGate();
   scav_two.guardGate();
 
-  std::cout << BOLDMAGENTA << "\n**************** FRAGTRAP TEST ****************"
-            << RESET << std::endl;
-  std::cout << "-------------- TEST CONSTRUCTORS -------------\n"
+  std::cout << BOLDMAGENTA
+            << "\n**************** FRAGTRAP TEST ****************" << RESET
             << std::endl;
+  std::cout << "-------------- TEST CONSTRUCTORS -------------\n" << std::endl;
   FragTrap frag_zero;
   FragTrap frag_one("frag_One");
   FragTrap frag_two(frag_one);

@@ -2,7 +2,7 @@
  * @file Fixed.cpp
  * @author Julia Persidskaia
  * @date 2025-03-16
-*/
+ */
 
 #include "Fixed.hpp"
 
@@ -17,7 +17,8 @@ Fixed::Fixed(const int value) {
 
 Fixed::Fixed(const float value) {
   std::cout << "Float constructor called" << std::endl;
-  _number = static_cast<int>(std::roundf(static_cast<double>(value) * (1 << _point)));
+  _number =
+      static_cast<int>(std::roundf(static_cast<double>(value) * (1 << _point)));
 }
 
 Fixed::Fixed(const Fixed& other) : _number(other._number) {
@@ -32,9 +33,7 @@ Fixed& Fixed::operator=(const Fixed& other) {
   return *this;
 }
 
-Fixed::~Fixed() {
-  std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 
 int Fixed::getRawBits(void) const {
   std::cout << "getRawBits member function called" << std::endl;
@@ -50,9 +49,7 @@ float Fixed::toFloat(void) const {
   return (static_cast<double>(_number) / (1 << _point));
 }
 
-int Fixed::toInt(void) const {
-  return (_number / (1 << _point));
-}
+int Fixed::toInt(void) const { return (_number / (1 << _point)); }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
   os << fixed.toFloat();

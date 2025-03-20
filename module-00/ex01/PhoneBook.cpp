@@ -21,8 +21,7 @@ void PhoneBook::displayContacts() const {
   std::cout << std::setw(10) << "Index"
             << "|" << std::setw(10) << "First Name"
             << "|" << std::setw(10) << "Last Name"
-            << "|" << std::setw(10) << "Nickname"
-            << std::endl;
+            << "|" << std::setw(10) << "Nickname" << std::endl;
   for (int i = 0; i < CAPACITY; ++i) {
     if (_contacts[i].getName() != "Uknown") {
       std::cout << std::setw(10) << i << "|" << std::setw(10)
@@ -43,12 +42,10 @@ void PhoneBook::displayContacts() const {
       std::cout << "Error: contact with index " << index << " is empty."
                 << std::endl;
     } else {
-      std::cout << "Name:\t\t" << _contacts[index].getName()
-                << std::endl;
+      std::cout << "Name:\t\t" << _contacts[index].getName() << std::endl;
       std::cout << "Last Name:\t" << _contacts[index].getLastName()
                 << std::endl;
-      std::cout << "Nickname:\t" << _contacts[index].getNick()
-                << std::endl;
+      std::cout << "Nickname:\t" << _contacts[index].getNick() << std::endl;
       std::cout << "Phone Number:\t" << _contacts[index].getNumber()
                 << std::endl;
       std::cout << "Dark Secret:\t" << _contacts[index].getSecret()

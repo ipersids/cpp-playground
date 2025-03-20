@@ -11,19 +11,13 @@ int main(void) {
   std::string* stringPTR = &str;
   std::string& stringREF = str;
 
-  std::cout << "The memory address of the string variable:\t"
-            << &str
-            << "\nThe memory address held by stringPTR:\t\t"
-            << stringPTR
-            << "\nThe memory address held by stringREF:\t\t"
-            << &stringREF
+  std::cout << "The memory address of the string variable:\t" << &str
+            << "\nThe memory address held by stringPTR:\t\t" << stringPTR
+            << "\nThe memory address held by stringREF:\t\t" << &stringREF
             << std::endl;
-  
-  std::cout << "\nThe value of the string variable:\t\t"
-            << str
-            << "\nThe value pointed to by stringPTR:\t\t"
-            << *stringPTR
-            << "\nThe value pointed to by stringREF:\t\t"
-            << stringREF
+
+  std::cout << "\nThe value of the string variable:\t\t" << str
+            << "\nThe value pointed to by stringPTR:\t\t" << *stringPTR
+            << "\nThe value pointed to by stringREF:\t\t" << stringREF
             << std::endl;
 }

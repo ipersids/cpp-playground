@@ -24,20 +24,23 @@ void Harl::debug(void) {
 }
 
 void Harl::info(void) {
-  std::cout << "[ INFO ]\nI cannot believe adding extra bacon costs more money.\n"
-            << "You didn't put enough bacon in my burger! If you did, "
-            << "I wouldn't be asking for more!" << std::endl;
+  std::cout
+      << "[ INFO ]\nI cannot believe adding extra bacon costs more money.\n"
+      << "You didn't put enough bacon in my burger! If you did, "
+      << "I wouldn't be asking for more!" << std::endl;
 }
 
 void Harl::warning(void) {
-  std::cout << "[ WARNING ]\nI think I deserve to have some extra bacon for free.\n"
-            << "I've been coming for years whereas you started "
-            << "working here since last month." << std::endl;
+  std::cout
+      << "[ WARNING ]\nI think I deserve to have some extra bacon for free.\n"
+      << "I've been coming for years whereas you started "
+      << "working here since last month." << std::endl;
 }
 
 void Harl::error(void) {
-  std::cout << "[ ERROR ]\nThis is unacceptable! I want to speak to the manager now."
-            << std::endl;
+  std::cout
+      << "[ ERROR ]\nThis is unacceptable! I want to speak to the manager now."
+      << std::endl;
 }
 
 void Harl::complain(std::string level) {
