@@ -1,7 +1,7 @@
 /**
  * @file Fixed.cpp
  * @author Julia Persidskaia
- * @date 2025-03-20
+ * @date 2025-04-03
  */
 
 #include "Fixed.hpp"
@@ -12,13 +12,23 @@ Fixed::Fixed() : _number(0) {
 
 Fixed::Fixed(const int value) {
   // std::cout << "Int constructor called" << std::endl;
-  _number = value * (1 << _point);
+  long long int tmp = static_cast<long long int>(value) * (1 << _point);
+  if (tmp > INT32_MAX || tmp < INT32_MIN) {
+    _number = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
+  } else {
+    _number = static_cast<int>(tmp);
+  }
 }
 
 Fixed::Fixed(const float value) {
   // std::cout << "Float constructor called" << std::endl;
-  _number =
-      static_cast<int>(std::roundf(static_cast<double>(value) * (1 << _point)));
+  long long int tmp = static_cast<long long int>(
+      std::round(static_cast<double>(value) * (1 << _point)));
+  if (tmp > INT32_MAX || tmp < INT32_MIN) {
+    _number = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
+  } else {
+    _number = static_cast<int>(tmp);
+  }
 }
 
 Fixed::Fixed(const Fixed& other) : _number(other._number) {
@@ -59,7 +69,12 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
 }
 
 Fixed& Fixed::operator++() {
-  _number = _number + 1;
+  long long int tmp = _number + 1;
+  if (tmp > INT32_MAX || tmp < INT32_MIN) {
+    _number = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
+  } else {
+    _number = static_cast<int>(tmp);
+  }
   return *this;
 }
 
@@ -70,7 +85,12 @@ Fixed Fixed::operator++(int) {
 }
 
 Fixed& Fixed::operator--() {
-  _number = _number - 1;
+  long long int tmp = _number - 1;
+  if (tmp > INT32_MAX || tmp < INT32_MIN) {
+    _number = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
+  } else {
+    _number = static_cast<int>(tmp);
+  }
   return *this;
 }
 
@@ -105,19 +125,55 @@ bool operator>=(const Fixed& lf, const Fixed& rf) {
 }
 
 Fixed Fixed::operator-(const Fixed& other) const {
-  return this->toFloat() - other.toFloat();
+  Fixed result;
+  long long int tmp = static_cast<long long int>(_number) - other._number;
+
+  if (tmp > INT32_MAX || tmp < INT32_MIN) {
+    result._number = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
+  } else {
+    result._number = static_cast<int>(tmp);
+  }
+
+  return result;
 }
 
 Fixed Fixed::operator+(const Fixed& other) const {
-  return this->toFloat() + other.toFloat();
+  Fixed result;
+  long long int tmp = static_cast<long long int>(_number) + other._number;
+
+  if (tmp > INT32_MAX || tmp < INT32_MIN) {
+    result._number = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
+  } else {
+    result._number = static_cast<int>(tmp);
+  }
+
+  return result;
 }
 
 Fixed Fixed::operator*(const Fixed& other) const {
-  return this->toFloat() * other.toFloat();
+  Fixed result;
+  long long int tmp = static_cast<long long int>(_number) * other._number;
+
+  if (tmp > INT32_MAX || tmp < INT32_MIN) {
+    result._number = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
+  } else {
+    result._number = static_cast<int>(tmp);
+  }
+
+  return result;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const {
-  return this->toFloat() / other.toFloat();
+  Fixed result;
+  long long int tmp = static_cast<long long int>(_number) / other._number;
+
+  if (tmp > INT32_MAX || tmp < INT32_MIN) {
+    result._number = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
+  } else {
+    result._number = static_cast<int>(tmp);
+  }
+
+  return result;
 }
 
 Fixed& Fixed::min(Fixed& lf, Fixed& rf) { return (lf < rf) ? lf : rf; }

@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author Julia Persidskaia
- * @date 2025-03-20
+ * @date 2025-04-03
  */
 
 #include <iostream>
@@ -36,5 +36,14 @@ int main(void) {
   std::cout << b << " / " << a << " = " << b / a << std::endl;
   std::cout << "max: " << Fixed::max(a, b) << std::endl;
   std::cout << "min: " << Fixed::min(a, b) << std::endl;
+
+  std::cout << "OVERFLOW" << std::endl;
+  Fixed e(1000000);
+  Fixed g(INT32_MAX / 256);
+
+  std::cout << "e is " << e << std::endl;
+  std::cout << "g is " << g << std::endl;
+  std::cout << "e * g is " << g * e << std::endl;
+
   return 0;
 }
