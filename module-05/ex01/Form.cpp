@@ -37,11 +37,11 @@ Form::~Form() {
 
 const std::string& Form::getName(void) const { return _name; }
 
-const bool& Form::isSigned(void) const { return _is_signed; }
+bool Form::isSigned(void) const { return _is_signed; }
 
-const int& Form::getGradeToSign(void) const { return _grade_to_sign; }
+int Form::getGradeToSign(void) const { return _grade_to_sign; }
 
-const int& Form::getGradeToExecute(void) const { return _grade_to_execute; }
+int Form::getGradeToExecute(void) const { return _grade_to_execute; }
 
 void Form::beSigned(const Bureaucrat& who) {
   const int grade = who.getGrade();

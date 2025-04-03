@@ -23,9 +23,9 @@ class Form {
   ~Form();
 
   const std::string& getName(void) const;
-  const bool& isSigned(void) const;
-  const int& getGradeToSign(void) const;
-  const int& getGradeToExecute(void) const;
+  bool isSigned(void) const;
+  int getGradeToSign(void) const;
+  int getGradeToExecute(void) const;
 
   void beSigned(const Bureaucrat& who);
 
