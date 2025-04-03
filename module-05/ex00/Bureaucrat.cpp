@@ -29,7 +29,7 @@ Bureaucrat::~Bureaucrat() {
 
 const std::string& Bureaucrat::getName(void) const { return _name; }
 
-int Bureaucrat::getGrade(void) const { return _grade; }
+const int& Bureaucrat::getGrade(void) const { return _grade; }
 
 void Bureaucrat::incrementGrade(void) {
   int new_grade = _grade - 1;
