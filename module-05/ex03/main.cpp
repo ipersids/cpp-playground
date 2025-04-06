@@ -8,12 +8,12 @@
 #include <ctime>
 #include <iostream>
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "AForm.hpp"
-#include "Intern.hpp"
 
 int main(void) {
   try {
@@ -59,8 +59,7 @@ int main(void) {
     }
     std::cout << std::endl;
 
-  }
-    catch (const std::exception& e) {
+  } catch (const std::exception& e) {
     std::cerr << RED << e.what() << RESET << std::endl;
   }
 

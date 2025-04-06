@@ -24,12 +24,12 @@ Intern& Intern::operator=(const Intern& other) {
   return *this;
 }
 
-Intern::~Intern() {
-  std::cout << "Intern: destructor called" << std::endl;
-}
+Intern::~Intern() { std::cout << "Intern: destructor called" << std::endl; }
 
-AForm* Intern::makeForm(const std::string& form_name, const std::string& target) {
-  const std::string arr[FORMS_AMOUNT] = {"robotomy request", "shrubbery creation", "presidential pardon"};
+AForm* Intern::makeForm(const std::string& form_name,
+                        const std::string& target) {
+  const std::string arr[FORMS_AMOUNT] = {
+      "robotomy request", "shrubbery creation", "presidential pardon"};
   int i = 0;
   while (i < FORMS_AMOUNT) {
     if (arr[i] == form_name) {
@@ -40,27 +40,28 @@ AForm* Intern::makeForm(const std::string& form_name, const std::string& target)
 
   AForm* result = nullptr;
 
-  switch (i)
-  {
+  switch (i) {
     case 0:
-      result = new(std::nothrow) RobotomyRequestForm(target);
+      result = new (std::nothrow) RobotomyRequestForm(target);
       break;
 
     case 1:
-      result = new(std::nothrow) ShrubberyCreationForm(target);
+      result = new (std::nothrow) ShrubberyCreationForm(target);
       break;
-    
+
     case 2:
-      result = new(std::nothrow) PresidentialPardonForm(target);
+      result = new (std::nothrow) PresidentialPardonForm(target);
       break;
-    
+
     default:
-      std::cerr << RED << "Error: Intern: uknown form name" << RESET << std::endl;
+      std::cerr << RED << "Error: Intern: uknown form name" << RESET
+                << std::endl;
       return nullptr;
   }
 
   if (result == nullptr) {
-      std::cerr << RED << "Error: Intern: allocation memory failed" << RESET << std::endl;
+    std::cerr << RED << "Error: Intern: allocation memory failed" << RESET
+              << std::endl;
   }
 
   return result;
