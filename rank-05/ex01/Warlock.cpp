@@ -37,5 +37,5 @@ void Warlock::forgetSpell(const std::string& spell_type) {
 void Warlock::launchSpell(const std::string& spell_type, ATarget& target) {
   auto it = _spells.find(spell_type);
   if (it != _spells.end())
-    target.getHitBySpell(*_spells[spell_type]);
+    _spells[spell_type]->launch(target);
 }
