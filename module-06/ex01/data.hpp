@@ -1,9 +1,7 @@
 #pragma once
 
-struct Data
-{
+struct Data {
   int year;
   int month;
   int day;
 };
-

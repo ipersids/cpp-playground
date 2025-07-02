@@ -38,14 +38,14 @@ void ScalarConverter::convert(const std::string& literal) {
     double d = static_cast<double>(f);
     if (!std::isfinite(f) || std::isnan(f)) {
       displayNanOrInfinity(f, d);
-      return ;
+      return;
     }
     bool is_fixed_precision = isFixedPrecision(literal);
     displayType("char", f, ch, false);
     displayType("int", f, i, false);
     displayType("float", f, f, is_fixed_precision);
     displayType("double", f, d, is_fixed_precision);
-    return ;
+    return;
   }
 
   if (isDouble(literal)) {
@@ -55,7 +55,7 @@ void ScalarConverter::convert(const std::string& literal) {
     float f = static_cast<float>(d);
     if (!std::isfinite(f) || std::isnan(f)) {
       displayNanOrInfinity(f, d);
-      return ;
+      return;
     }
     bool is_fixed_precision = isFixedPrecision(literal);
     displayType("char", d, ch, false);

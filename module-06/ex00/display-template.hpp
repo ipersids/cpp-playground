@@ -8,8 +8,7 @@ void displayType(const std::string& type, F from_data, T to_data,
                  bool is_fixed_presicion) {
   bool is_possible = !(
       static_cast<long double>(from_data) < std::numeric_limits<T>::lowest() ||
-      static_cast<long double>(from_data) > std::numeric_limits<T>::max()
-  );
+      static_cast<long double>(from_data) > std::numeric_limits<T>::max());
   if (is_fixed_presicion)
     std::cout << std::setprecision(1) << std::fixed;
   else

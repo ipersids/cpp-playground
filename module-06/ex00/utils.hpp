@@ -1,13 +1,14 @@
 #pragma once
 
 #include <iostream>
-#include <string>
-#include <sstream>
 #include <regex>
+#include <sstream>
+#include <string>
 
 /* ----------------- DISPLAY RESULT ---------------- */
 
-void displayError(const std::string& ch, const std::string& i, const std::string& f, const std::string& d);
+void displayError(const std::string& ch, const std::string& i,
+                  const std::string& f, const std::string& d);
 void displayNanOrInfinity(float f, double d);
 
 /* ---------------- CHECK DATA TYPE ---------------- */

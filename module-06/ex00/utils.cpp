@@ -2,7 +2,8 @@
 
 /* ----------------- DISPLAY RESULT ---------------- */
 
-void displayError(const std::string& ch, const std::string& i, const std::string& f, const std::string& d) {
+void displayError(const std::string& ch, const std::string& i,
+                  const std::string& f, const std::string& d) {
   std::cout << "char: " << ch << std::endl;
   std::cout << "int: " << i << std::endl;
   std::cout << "float: " << f << std::endl;
@@ -17,12 +18,13 @@ void displayNanOrInfinity(float f, double d) {
 }
 
 /* ---------------- CHECK DATA TYPE ---------------- */
-/// @note regex tutorial: 
+/// @note regex tutorial:
 /// https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
 
 bool isChar(const std::string& literal) {
   std::regex re(R"(^.$)");
-  return (std::regex_match(literal, re) || literal.length() == 1) && !std::isdigit(literal[0]);
+  return (std::regex_match(literal, re) || literal.length() == 1) &&
+         !std::isdigit(literal[0]);
 }
 
 bool isIntenger(const std::string& literal) {
@@ -53,11 +55,9 @@ int tryToIntenger(const std::string& literal) {
   try {
     i = std::stoi(literal);
     return i;
-  }
-  catch (std::invalid_argument const& ex) {
+  } catch (std::invalid_argument const& ex) {
     msg << "Error: " << ex.what() << '\n';
-  }
-  catch (std::out_of_range const& ex) {
+  } catch (std::out_of_range const& ex) {
     msg << "Error: " << ex.what();
   }
   displayError("Impossible", msg.str(), "Impossible", "Impossible");
@@ -70,11 +70,9 @@ float tryToFloat(const std::string& literal) {
   try {
     f = std::stof(literal);
     return f;
-  }
-  catch (std::invalid_argument const& ex) {
+  } catch (std::invalid_argument const& ex) {
     msg << "Error: " << ex.what() << '\n';
-  }
-  catch (std::out_of_range const& ex) {
+  } catch (std::out_of_range const& ex) {
     msg << "Error: " << ex.what();
   }
   displayError("Impossible", "Impossible", msg.str(), "Impossible");
@@ -87,11 +85,9 @@ double tryToDouble(const std::string& literal) {
   try {
     d = std::stod(literal);
     return d;
-  }
-  catch (std::invalid_argument const& ex) {
+  } catch (std::invalid_argument const& ex) {
     msg << "Error: " << ex.what() << '\n';
-  }
-  catch (std::out_of_range const& ex) {
+  } catch (std::out_of_range const& ex) {
     msg << "Error: " << ex.what();
   }
   displayError("Impossible", "Impossible", "Impossible", msg.str());
@@ -100,11 +96,9 @@ double tryToDouble(const std::string& literal) {
 
 /* -------------------- CHECKERS -------------------- */
 
-
 bool isFixedPrecision(const std::string& literal) {
   std::size_t dot_pos = literal.find('.');
-  if (dot_pos == std::string::npos)
-    return true;
+  if (dot_pos == std::string::npos) return true;
 
   std::size_t exp_pos = literal.find_first_of("eE", dot_pos);
   std::size_t first_non_zero_pos = literal.find_first_not_of('0', dot_pos + 1);
@@ -114,7 +108,8 @@ bool isFixedPrecision(const std::string& literal) {
   if (exp_pos == std::string::npos) {
     return false;
   }
-  int decimal_precision_count = static_cast<int>(exp_pos) - static_cast<int>(dot_pos) - 1;
+  int decimal_precision_count =
+      static_cast<int>(exp_pos) - static_cast<int>(dot_pos) - 1;
   int exponent = 0;
   try {
     exponent = std::stoi(literal.substr(exp_pos + 1));
@@ -122,5 +117,6 @@ bool isFixedPrecision(const std::string& literal) {
     std::cout << "Error: isFixedPresicion() -> stoi" << std::endl;
     return false;
   }
-  return !(exponent < decimal_precision_count) || (exp_pos == first_non_zero_pos);
+  return !(exponent < decimal_precision_count) ||
+         (exp_pos == first_non_zero_pos);
 }

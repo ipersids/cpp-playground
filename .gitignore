@@ -33,6 +33,9 @@
 exe_*
 harlFilter
 *_shrubbery
+convert
+serialize
+identify
 
 # temporary directories
 obj/*
