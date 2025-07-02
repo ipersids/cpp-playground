@@ -7,7 +7,6 @@ int main(int argc, char** argv) {
     std::cout << "Usage: ./convert <string literal>" << std::endl;
     return 1;
   }
-  std::cout << "before: " << std::string(argv[1]).length() << std::endl;
   ScalarConverter::convert(argv[1]);
   return (0);
 }

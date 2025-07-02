@@ -1,9 +1,7 @@
 #pragma once
 
-#include <iostream>
-#include <iomanip>
-
 #include "utils.hpp"
+#include "display-template.hpp"
 
 class ScalarConverter {
   public:
