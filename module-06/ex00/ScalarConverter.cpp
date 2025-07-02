@@ -8,7 +8,7 @@
  */
 void ScalarConverter::convert(const std::string& literal) {
   if (isChar(literal)) {
-    char ch = static_cast<unsigned char>(literal[0]);
+    unsigned char ch = static_cast<unsigned char>(literal[0]);
     int i = static_cast<int>(ch);
     float f = static_cast<float>(ch);
     double d = static_cast<double>(ch);
@@ -21,7 +21,7 @@ void ScalarConverter::convert(const std::string& literal) {
 
   if (isIntenger(literal)) {
     int i = tryToIntenger(literal);
-    char ch = static_cast<unsigned char>(i);
+    unsigned char ch = static_cast<unsigned char>(i);
     float f = static_cast<float>(i);
     double d = static_cast<double>(i);
     displayType("char", i, ch, false);
@@ -34,28 +34,34 @@ void ScalarConverter::convert(const std::string& literal) {
   if (isFloat(literal)) {
     float f = tryToFloat(literal);
     int i = static_cast<int>(std::round(f));
-    char ch = static_cast<unsigned char>(std::round(f));
+    unsigned char ch = static_cast<unsigned char>(std::round(f));
     double d = static_cast<double>(f);
-    std::size_t dot_pos = literal.find('.');
-    bool is_fixed_presicion = (dot_pos != std::string::npos) ? false : true;
+    if (!std::isfinite(f) || std::isnan(f)) {
+      displayNanOrInfinity(f, d);
+      return ;
+    }
+    bool is_fixed_precision = isFixedPrecision(literal);
     displayType("char", f, ch, false);
     displayType("int", f, i, false);
-    displayType("float", f, f, is_fixed_presicion);
-    displayType("double", f, d, is_fixed_presicion);
+    displayType("float", f, f, is_fixed_precision);
+    displayType("double", f, d, is_fixed_precision);
     return ;
   }
 
   if (isDouble(literal)) {
     double d = tryToDouble(literal);
     int i = static_cast<int>(std::round(d));
-    char ch = static_cast<unsigned char>(std::round(d));
+    unsigned char ch = static_cast<unsigned char>(std::round(d));
     float f = static_cast<float>(d);
-    std::size_t dot_pos = literal.find('.');
-    bool is_fixed_presicion = (dot_pos != std::string::npos) ? false : true;
+    if (!std::isfinite(f) || std::isnan(f)) {
+      displayNanOrInfinity(f, d);
+      return ;
+    }
+    bool is_fixed_precision = isFixedPrecision(literal);
     displayType("char", d, ch, false);
     displayType("int", d, i, false);
-    displayType("float", d, f, is_fixed_presicion);
-    displayType("double", d, d, is_fixed_presicion);
+    displayType("float", d, f, is_fixed_precision);
+    displayType("double", d, d, is_fixed_precision);
     return;
   }
 }

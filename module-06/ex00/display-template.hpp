@@ -14,7 +14,7 @@ void displayType(const std::string& type, F from_data, T to_data,
     std::cout << std::setprecision(1) << std::fixed;
   else
     std::cout << std::defaultfloat;
-  if (is_possible && type == "char") {
+  if (is_possible && type == "char" && from_data >= 0) {
     std::cout << type << ": "
               << (std::isprint(to_data) ? std::string(1, to_data)
                                         : "not printable")
