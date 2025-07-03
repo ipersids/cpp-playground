@@ -10,6 +10,7 @@
 void displayError(const std::string& ch, const std::string& i,
                   const std::string& f, const std::string& d);
 void displayNanOrInfinity(float f, double d);
+void displayInvalidInput(void);
 
 /* ---------------- CHECK DATA TYPE ---------------- */
 

@@ -17,6 +17,13 @@ void displayNanOrInfinity(float f, double d) {
   std::cout << "double: " << d << std::endl;
 }
 
+void displayInvalidInput(void) {
+  std::cout << "char: Impossible" << std::endl;
+  std::cout << "int: Impossible" << std::endl;
+  std::cout << "float: Impossible" << std::endl;
+  std::cout << "double: Impossible" << std::endl;
+}
+
 /* ---------------- CHECK DATA TYPE ---------------- */
 /// @note regex tutorial:
 /// https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html

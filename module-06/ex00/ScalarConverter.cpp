@@ -64,4 +64,5 @@ void ScalarConverter::convert(const std::string& literal) {
     displayType("double", d, d, is_fixed_precision);
     return;
   }
+  displayInvalidInput();
 }
