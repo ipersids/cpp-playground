@@ -64,10 +64,8 @@ int main(void) {
   tmp_ice_to_unequip = src->createMateria("ice");
   bob->equip(tmp_ice_to_unequip);
   // bob->equip(nullptr);
-  std::cout
-      << BLUE
-      << "Unequip 'ice' from 'bob':" <<  RESET << "\n(raw pointer should be deleted separately): "
-      << std::endl;
+  std::cout << BLUE << "Unequip 'ice' from 'bob':" << RESET
+            << "\n(raw pointer should be deleted separately): " << std::endl;
   bob->unequip(0);
 
   std::cout << BOLDGREEN << "\n-------------- DESTRUCTORS -------------\n"

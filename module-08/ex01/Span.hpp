@@ -14,8 +14,8 @@ class Span {
   ~Span();
 
   void addNumber(int value);
-  int shortestSpan();
-  int longestSpan();
+  unsigned int shortestSpan();
+  unsigned int longestSpan();
 
  private:
   unsigned int _n;

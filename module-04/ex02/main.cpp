@@ -94,21 +94,22 @@ int main(void) {
   {
     /**
      * If the default AAnimal class should not be instantiable:
-     * - make the class abstract by using at least one pure virtual function, 
+     * - make the class abstract by using at least one pure virtual function,
      *   ex.: virtual void makeSound(void) const = 0;
      * - delete constructor,
      *   ex.: AAnimal() = delete;
      * - make default constructor private, what allows inheritance
      *   but prevents direct instantiation,
-     *   ex.: 
+     *   ex.:
      *   protected:
      *      AAnimal();
-     * 
-     * Result: uncommenting and trying to instantiate AAnimal 
+     *
+     * Result: uncommenting and trying to instantiate AAnimal
      *         will give a compilation error
      */
 
-     std::cout << "--- Uncommit AAnimal a; to see compilation error ---" << std::endl;
+    std::cout << "--- Uncommit AAnimal a; to see compilation error ---"
+              << std::endl;
     // AAnimal a; // error
   }
   return 0;

@@ -13,7 +13,8 @@ void Span::addNumber(int value) {
   _vec.push_back(value);
   _n += 1;
 }
-int Span::shortestSpan() {
+
+unsigned int Span::shortestSpan() {
   if (_vec.empty())
     throw std::length_error("Error: shortestSpan: Span is empty");
   if (_vec.size() == 1)
@@ -31,7 +32,7 @@ int Span::shortestSpan() {
   return res;
 }
 
-int Span::longestSpan() {
+unsigned int Span::longestSpan() {
   if (_vec.empty())
     throw std::length_error("Error: shortestSpan: Span is empty");
   if (_vec.size() == 1)
