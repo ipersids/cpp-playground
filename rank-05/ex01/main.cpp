@@ -1,13 +1,12 @@
-#include "ASpell.hpp"
-#include "ATarget.hpp"
-#include "Warlock.hpp"
-#include "Fwoosh.hpp"
-#include "Dummy.hpp"
-
 #include <iostream>
 
-int main()
-{
+#include "ASpell.hpp"
+#include "ATarget.hpp"
+#include "Dummy.hpp"
+#include "Fwoosh.hpp"
+#include "Warlock.hpp"
+
+int main() {
   Warlock richard("Richard", "the Titled");
 
   Dummy bob;
