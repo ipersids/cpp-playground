@@ -6,7 +6,7 @@
 #    By: ipersids <ipersids@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 22:46:29 by ipersids          #+#    #+#              #
-#    Updated: 2025/07/04 10:47:14 by ipersids         ###   ########.fr        #
+#    Updated: 2025/07/04 10:47:49 by ipersids         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,17 +21,17 @@ HDRS		:= -I.
 OBJ_DIR		:= obj
 
 # Sources and objects
-SRCS		:= 
+SRCS		:= Span.cpp
 SRC_MAIN	:= main.cpp
 
-OBJS		:= 
+OBJS		:= $(OBJ_DIR)/Span.o
 OBJS_MAIN	:= $(OBJ_DIR)/main.o
 
 # Dependency files (for tracking header changes)
 DEPS        := $(OBJS:.o=.d) $(OBJS_MAIN:.o=.d)
 
 # Program name
-NAME		:= exe_easyfind
+NAME		:= exe_span
 
 # Rules
 all: $(OBJ_DIR) $(NAME)
