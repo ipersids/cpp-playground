@@ -2,42 +2,45 @@
 
 #include <algorithm>
 
-Span::Span(unsigned int n) : _n(n) {}
+Span::Span(unsigned int n) : _n(n) { _vec.reserve(n); }
 
 Span::~Span() { _vec.clear(); }
 
 void Span::addNumber(int value) {
   if (_vec.size() >= _n)
-    throw std::out_of_range("Error: addNumber: Exceed capacity in " +
+    throw std::out_of_range(COLORED_ERR " addNumber: Exceed capacity in " +
                             std::to_string(_n) + " elements");
   _vec.push_back(value);
-  _n += 1;
 }
 
 unsigned int Span::shortestSpan() {
   if (_vec.empty())
-    throw std::length_error("Error: shortestSpan: Span is empty");
+    throw std::length_error(COLORED_ERR " shortestSpan: Span is empty");
   if (_vec.size() == 1)
-    throw std::length_error(
-        "Error: shortestSpan: Span contains only one element");
+    throw std::length_error(COLORED_ERR
+                            " shortestSpan: Span contains only one element");
+
   std::vector<int> tmp = _vec;
   std::sort(tmp.begin(), tmp.end());
-  int res = tmp[1] - tmp[0];
-  int tmp_res = 0;
-  for (auto start = tmp.begin(), end = tmp.end(); start + 1 != end && res != 0;
-       start++) {
-    tmp_res = start[1] - start[0];
-    if (tmp_res < res) res = tmp_res;
+
+  unsigned int res = std::numeric_limits<unsigned int>::max();
+
+  for (size_t i = 0; i < tmp.size() - 1; ++i) {
+    unsigned int current_span = static_cast<unsigned int>(tmp[i + 1] - tmp[i]);
+    if (current_span < res) {
+      res = current_span;
+    }
   }
+
   return res;
 }
 
 unsigned int Span::longestSpan() {
   if (_vec.empty())
-    throw std::length_error("Error: shortestSpan: Span is empty");
+    throw std::length_error(COLORED_ERR " longestSpan: Span is empty");
   if (_vec.size() == 1)
-    throw std::length_error(
-        "Error: shortestSpan: Span contains only one element");
+    throw std::length_error(COLORED_ERR
+                            " longestSpan: Span contains only one element");
   std::vector<int> tmp = _vec;
   std::sort(tmp.begin(), tmp.end());
   return *(tmp.end() - 1) - *(tmp.begin());
