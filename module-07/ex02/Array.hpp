@@ -16,13 +16,7 @@ class Array {
     // std::cout << "Array: default constructor called" << std::endl;
   }
 
-  Array(unsigned int n) : _n(n) {
-    _arr = new (std::nothrow) T[n];
-    if (_arr == nullptr) {
-      std::cerr << "Error: Array: Memory allocation failed" << std::endl;
-      _n = 0;
-    }
-  }
+  Array(unsigned int n) : _n(n) { _arr = new T[n]; }
 
   Array(const Array& other) {
     // std::cout << "Array: copy constructor called" << std::endl;
@@ -50,11 +44,7 @@ class Array {
       return *this;
     }
 
-    this->_arr = new (std::nothrow) T[other._n];
-    if (this->_arr == nullptr) {
-      std::cerr << "Error: Array: Memory allocation failed" << std::endl;
-      return *this;
-    }
+    this->_arr = new T[other._n];
 
     this->_n = other._n;
     for (unsigned int i = 0; i < other._n; i++) {
