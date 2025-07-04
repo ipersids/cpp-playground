@@ -90,6 +90,10 @@ int main(void) {
               << std::endl
               << std::endl;
 
+    // will be compilation error because of template guard
+    // int foo = 5;
+    // easyfind(foo, 'e');
+
   } catch (const std::exception& e) {
     std::cout << "FAIL: " << e.what() << std::endl;
     return 1;
