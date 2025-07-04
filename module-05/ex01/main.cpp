@@ -8,7 +8,7 @@
 
 #include "Bureaucrat.hpp"
 
-int main(void) { 
+int main(void) {
   try {
     std::cout << GREEN << "\n------- TEST 1 (CORRECT INPUT) -------\n"
               << RESET << std::endl;
@@ -37,8 +37,7 @@ int main(void) {
 
   std::cout << GREEN << "\n------- TEST 2 (INVALID FORM) -------\n\n";
   try {
-    std::cout << GREEN << "---> Grade to sign = 0:"
-              << RESET << std::endl;
+    std::cout << GREEN << "---> Grade to sign = 0:" << RESET << std::endl;
     Form diploma("Diploma", 0, 50);
     std::cout << diploma << "\n" << std::endl;
 
@@ -49,8 +48,7 @@ int main(void) {
   }
 
   try {
-    std::cout << GREEN << "---> Grade to sign = 151:"
-              << RESET << std::endl;
+    std::cout << GREEN << "---> Grade to sign = 151:" << RESET << std::endl;
     Form diploma("Diploma", 151, 50);
     std::cout << diploma << "\n" << std::endl;
 
@@ -61,8 +59,7 @@ int main(void) {
   }
 
   try {
-    std::cout << GREEN << "---> Grade to execute = 0:"
-              << RESET << std::endl;
+    std::cout << GREEN << "---> Grade to execute = 0:" << RESET << std::endl;
     Form diploma("Diploma", 50, 0);
     std::cout << diploma << "\n" << std::endl;
 
@@ -73,8 +70,7 @@ int main(void) {
   }
 
   try {
-    std::cout << GREEN << "---> Grade to execute = 151:"
-              << RESET << std::endl;
+    std::cout << GREEN << "---> Grade to execute = 151:" << RESET << std::endl;
     Form diploma("Diploma", 50, 151);
     std::cout << diploma << "\n" << std::endl;
 

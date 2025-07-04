@@ -9,17 +9,17 @@ HDRS		:= -I.
 OBJ_DIR		:= obj
 
 # Sources and objects
-SRCS		:= 
+SRCS		:= Span.cpp
 SRC_MAIN	:= main.cpp
 
-OBJS		:= 
+OBJS		:= $(OBJ_DIR)/Span.o
 OBJS_MAIN	:= $(OBJ_DIR)/main.o
 
 # Dependency files (for tracking header changes)
 DEPS        := $(OBJS:.o=.d) $(OBJS_MAIN:.o=.d)
 
 # Program name
-NAME		:= exe_easyfind
+NAME		:= exe_span
 
 # Rules
 all: $(OBJ_DIR) $(NAME)

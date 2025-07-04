@@ -5,12 +5,12 @@
 
 #include "ASpell.hpp"
 
-class Fwoosh: public ASpell {
-  public:
-    Fwoosh();
-    ~Fwoosh() = default;
-    Fwoosh(const Fwoosh& other) = delete;
-    Fwoosh& operator=(const Fwoosh& other) = delete;
+class Fwoosh : public ASpell {
+ public:
+  Fwoosh();
+  ~Fwoosh() = default;
+  Fwoosh(const Fwoosh& other) = delete;
+  Fwoosh& operator=(const Fwoosh& other) = delete;
 
-    Fwoosh* clone() override;
+  Fwoosh* clone() override;
 };

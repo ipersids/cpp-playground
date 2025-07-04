@@ -2,7 +2,7 @@
  * @file bsp.cpp
  * @author Julia Persidskaia
  * @date 2025-03-21
-*/
+ */
 
 #include "Point.hpp"
 

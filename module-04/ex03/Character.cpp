@@ -77,7 +77,7 @@ void Character::equip(AMateria* m) {
               << std::endl;
     return;
   }
-  
+
   for (int i = 0; i < SLOTS; i++) {
     if (_inventory[i] == nullptr) {
       _inventory[i] = m;

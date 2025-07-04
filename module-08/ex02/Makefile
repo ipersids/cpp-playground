@@ -19,7 +19,7 @@ OBJS_MAIN	:= $(OBJ_DIR)/main.o
 DEPS        := $(OBJS:.o=.d) $(OBJS_MAIN:.o=.d)
 
 # Program name
-NAME		:= exe_easyfind
+NAME		:= exe_mutant_stack
 
 # Rules
 all: $(OBJ_DIR) $(NAME)
