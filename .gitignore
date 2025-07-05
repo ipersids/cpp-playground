@@ -36,6 +36,8 @@ harlFilter
 convert
 serialize
 identify
+RPN
+btc
 
 # temporary directories
 obj/*
