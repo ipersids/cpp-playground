@@ -38,6 +38,7 @@ serialize
 identify
 RPN
 btc
+PmergeMe
 
 # temporary directories
 obj/*

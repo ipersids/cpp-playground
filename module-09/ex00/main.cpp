@@ -17,7 +17,6 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  (void)argv;
   try {
     BitcoinExchange btc;
     btc.exchange(argv[1]);
