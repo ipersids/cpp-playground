@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ipersids <ipersids@student.hive.fi>        +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/03 22:46:29 by ipersids          #+#    #+#              #
-#    Updated: 2025/07/06 19:30:58 by ipersids         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Compilation variables
 CXX			:= clang++
-CXXFLAGS	:= -Wall -Wextra -Werror -std=c++11 -MMD -MP
+CXXFLAGS	:= -Wall -Wextra -Werror -std=c++17 -MMD -MP
 # -MMD generates dependency files (.d) that list all headers for source
 # -MP adds phony targets for headers to prevent errors if headers are removed
 HDRS		:= -I.
@@ -31,7 +19,7 @@ OBJS_MAIN	:= $(OBJ_DIR)/main.o
 DEPS        := $(OBJS:.o=.d) $(OBJS_MAIN:.o=.d)
 
 # Program name
-NAME		:= RPN
+NAME		:= PmergeMe
 
 # Rules
 all: $(OBJ_DIR) $(NAME)
