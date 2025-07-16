@@ -36,16 +36,16 @@ T runFordJohnsonAlgorithm(T& container) {
     return container;
   }
 
-  T largest, pending, odd;
+  T largest, smallest, odd;
 
   auto end = container.end();
   auto start = container.begin();
   for (; start + 1 < end; start += 2) {
     if (*start < *(start + 1)) {
-      pending.push_back(*start);
+      smallest.push_back(*start);
       largest.push_back(*(start + 1));
     } else {
-      pending.push_back(*(start + 1));
+      smallest.push_back(*(start + 1));
       largest.push_back(*start);
     }
     counter += 1;
@@ -56,6 +56,16 @@ T runFordJohnsonAlgorithm(T& container) {
   }
 
   T sorted_largest = runFordJohnsonAlgorithm(largest);
+  std::vector<bool> visited(sorted_largest.size(), false);
+  T pending;
+  for (int val: sorted_largest) {
+    for (size_t i = 0; i < sorted_largest.size(); ++i) {
+      if (val == largest[i] && !visited[i]) {
+        pending.push_back(smallest[i]);
+        visited[i] = true;
+      }
+    }
+  }
 
   T main_chain = {sorted_largest[0]};
   if (pending.size() > 1) {
@@ -75,7 +85,7 @@ T runFordJohnsonAlgorithm(T& container) {
       break;
     }
     int lim = std::min(it, static_cast<int>(pending.size()));
-    for (int k = lim; k >= inserted_count + 1; --k) {
+    for (int k = lim; k > inserted_count; --k) {
       int element = pending[k - 1];
       int right_pos = std::min(static_cast<int>(main_chain.size()), k + lim);
       int pos = runBinarySearch(main_chain, element, 0, right_pos);

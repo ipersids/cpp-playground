@@ -19,7 +19,7 @@ void testFordJohnson() {
         {1, 2, 3, 4, 5},
         {5, 4, 3, 2, 1},
         {3, 1, 4, 1, 5, 9, 2},
-        {10, 5, 2, 8, 1, 9, 3, 7, 10, 21, 18, 17, 19}
+        {10, 5, 2, 8, 1, 9, 3, 7, 11, 21, 18, 17, 19, 33, 29, 27, 31, 30, 15, 40, 44}
     };
 
     for (const auto& test : test_cases) {
@@ -48,20 +48,6 @@ int main(int argc, char** argv) {
   //   std::cerr << MAGENTA "Usage: " << RESET "./PmergeMe <a positive integer sequence>" << std::endl;
   //   return 1;
   // }
-  // std::vector<int> v = {5, 2, 8, 1, 9, 3, 7, 10, 21, 18, 17, 19};
-  // for (auto it : v) std::cout << it << " ";
-  // std::cout << std::endl;
-
-  // counter = 0;
-  // v = runFordJohnsonAlgorithm(v);
-  // for (auto it : v) std::cout << it << " ";
-  // std::cout << "counter " << counter << std::endl;
-
-  // counter = 0;
-  // std::deque<int> d = {5, 2, 8, 1, 9, 3, 7, 10, 21, 18, 17, 19};
-  // d = runFordJohnsonAlgorithm(d);
-  // for (auto it : d) std::cout << it << " ";
-  // std::cout << "counter " << counter << std::endl;
   testFordJohnson();
   return 0;
 }
