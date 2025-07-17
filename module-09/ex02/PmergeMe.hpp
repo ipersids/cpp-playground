@@ -67,15 +67,15 @@ T runFordJohnsonAlgorithm(T& container) {
     }
   }
 
-  T main_chain = {sorted_largest[0]};
-  if (pending.size() > 1) {
+  T main_chain;
+  if (!pending.empty()) {
     main_chain.insert(main_chain.begin(), pending[0]);
     pending.erase(pending.begin());
   }
 
-  for (size_t i = 1; i < sorted_largest.size(); ++i) {
-    main_chain.push_back(sorted_largest[i]);
-  }
+  for (const auto& elem : sorted_largest) {
+    main_chain.push_back(elem);
+}
 
   std::vector<int> jacobsthal = generateJacobsthalNumbers(pending.size());
   int inserted_count = 0;
@@ -85,7 +85,7 @@ T runFordJohnsonAlgorithm(T& container) {
       break;
     }
     int lim = std::min(it, static_cast<int>(pending.size()));
-    for (int k = lim; k > inserted_count; --k) {
+    for (int k = lim; k >= inserted_count + 1; --k) {
       int element = pending[k - 1];
       int right_pos = std::min(static_cast<int>(main_chain.size()), k + lim);
       int pos = runBinarySearch(main_chain, element, 0, right_pos);
