@@ -20,12 +20,8 @@ PmergeMe::PmergeMe(int amount, char** numbers) {
   _deque = runFordJohnsonAlgorithm(_deque);
   Time end_deque = std::chrono::high_resolution_clock::now();
 
-  _duration_vec =
-      std::chrono::duration_cast<std::chrono::microseconds>(end_vec - start_vec)
-          .count();
-  _duration_deque = std::chrono::duration_cast<std::chrono::microseconds>(
-                        end_deque - start_deque)
-                        .count();
+  _duration_vec = std::chrono::duration<double, std::micro>(end_vec - start_vec).count();
+  _duration_deque = std::chrono::duration<double, std::micro>(end_deque - start_deque).count();
 
   validateResultAndPrint();
 }
@@ -91,9 +87,9 @@ void PmergeMe::validateResultAndPrint() {
     std::cout << it << " ";
   }
   std::cout << "\nTime to process a range of " << _vec.size()
-            << " elements with std::vector: " << _duration_vec << "µs";
+            << " elements with std::vector: " << _duration_vec << " us";
   std::cout << "\nTime to process a range of " << _deque.size()
-            << " elements with std::deque: " << _duration_deque << "µs"
+            << " elements with std::deque: " << _duration_deque << " us"
             << std::endl;
 }
 /// @brief Sequence of integers that follow a specific recurrence relation.

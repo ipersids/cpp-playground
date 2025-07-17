@@ -28,8 +28,8 @@ class PmergeMe {
   std::vector<int> _vec;
   std::deque<int> _deque;
   std::vector<int> _input;
-  long long _duration_vec;
-  long long _duration_deque;
+  double _duration_vec;
+  double _duration_deque;
 
   /// Helpers
   void validateInput(int amount, char** numbers);
