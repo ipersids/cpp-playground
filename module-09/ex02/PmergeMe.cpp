@@ -96,7 +96,6 @@ void PmergeMe::validateResultAndPrint() {
             << " elements with std::deque: " << _duration_deque << "µs"
             << std::endl;
 }
-
 /// @brief Sequence of integers that follow a specific recurrence relation.
 /// In the Ford-Johnson algorithm, Jacobsthal numbers determine the optimal
 /// insertion order for minimizing comparisons during the binary search phase:

@@ -1,6 +1,6 @@
 # Compilation variables
 CXX			:= clang++
-CXXFLAGS	:= -Wall -Wextra -Werror -std=c++20 -MMD -MP
+CXXFLAGS	:= -Wall -Wextra -Werror -std=c++17 -MMD -MP
 # -MMD generates dependency files (.d) that list all headers for source
 # -MP adds phony targets for headers to prevent errors if headers are removed
 HDRS		:= -I.
