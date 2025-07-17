@@ -1,13 +1,49 @@
 #pragma once
 
+#include <algorithm>
 #include <chrono>
 #include <deque>
+#include <exception>
 #include <iostream>
+#include <regex>
+#include <string>
 #include <vector>
 
-std::vector<int> generateJacobsthalNumbers(int max_index);
+#ifndef COLORS
+#define RED "\033[31m"
+#define MAGENTA "\033[35m"
+#define RESET "\033[0m"
+#endif  // COLORS
 
-static int counter = 0;
+class PmergeMe {
+ public:
+  PmergeMe() = delete;
+  PmergeMe& operator=(const PmergeMe& other) = delete;
+  PmergeMe(const PmergeMe& other) = delete;
+  ~PmergeMe();
+
+  PmergeMe(int amoutn, char** numbers);
+
+ private:
+  std::vector<int> _vec;
+  std::deque<int> _deque;
+  std::vector<int> _input;
+  long long _duration_vec;
+  long long _duration_deque;
+
+  /// Helpers
+  void validateInput(int amount, char** numbers);
+  bool isIntenger(const std::string& literal);
+  std::vector<int> generateJacobsthalNumbers(int max_index);
+  void validateResultAndPrint();
+
+  /// Templates
+  template <typename T>
+  int runBinarySearch(const T& container, typename T::value_type target,
+                      int left, int right);
+  template <typename T>
+  T runFordJohnsonAlgorithm(T& container);
+};
 
 /// @brief Search for position for target
 /// @tparam T container type
@@ -17,22 +53,21 @@ static int counter = 0;
 /// @param right right bound
 /// @return Index where target should be inserted
 template <typename T>
-int runBinarySearch(const T& container, typename T::value_type target, int left,
-                    int right) {
+int PmergeMe::runBinarySearch(const T& container, typename T::value_type target,
+                              int left, int right) {
   while (left < right) {
     int mid = left + (right - left) / 2;
-    if (container[mid] < target) {
+    if (container[mid] <= target) {
       left = mid + 1;
     } else {
       right = mid;
     }
-    counter += 1;
   }
   return left;
 }
 
 template <typename T>
-T runFordJohnsonAlgorithm(T& container) {
+T PmergeMe::runFordJohnsonAlgorithm(T& container) {
   if (container.size() <= 1) {
     return container;
   }
@@ -49,7 +84,6 @@ T runFordJohnsonAlgorithm(T& container) {
       smallest.push_back(*(start + 1));
       largest.push_back(*start);
     }
-    counter += 1;
   }
 
   if (start != end) {
