@@ -115,9 +115,6 @@ void BitcoinExchange::loadDatabase() {
     throw std::invalid_argument(RED "Error: " + std::string(RESET) +
                                 "Empty database");
   }
-
-  // std::cout << GREEN "Database successfully loaded." << RESET << std::endl;
-  // std::cout << "Database size: " << _database.size() << std::endl;
 }
 
 bool BitcoinExchange::validateDate(const std::string& date) const {
