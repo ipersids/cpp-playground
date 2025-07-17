@@ -17,7 +17,8 @@ static int counter = 0;
 /// @param right right bound
 /// @return Index where target should be inserted
 template <typename T>
-int runBinarySearch(const T& container, typename T::value_type target, int left, int right) {
+int runBinarySearch(const T& container, typename T::value_type target, int left,
+                    int right) {
   while (left < right) {
     int mid = left + (right - left) / 2;
     if (container[mid] < target) {
@@ -56,9 +57,10 @@ T runFordJohnsonAlgorithm(T& container) {
   }
 
   T sorted_largest = runFordJohnsonAlgorithm(largest);
+
   std::vector<bool> visited(sorted_largest.size(), false);
   T pending;
-  for (int val: sorted_largest) {
+  for (int val : sorted_largest) {
     for (size_t i = 0; i < sorted_largest.size(); ++i) {
       if (val == largest[i] && !visited[i]) {
         pending.push_back(smallest[i]);
@@ -75,12 +77,12 @@ T runFordJohnsonAlgorithm(T& container) {
 
   for (const auto& elem : sorted_largest) {
     main_chain.push_back(elem);
-}
+  }
 
   std::vector<int> jacobsthal = generateJacobsthalNumbers(pending.size());
   int inserted_count = 0;
 
-  for (int it: jacobsthal) {
+  for (int it : jacobsthal) {
     if (it > static_cast<int>(pending.size())) {
       break;
     }
@@ -96,13 +98,15 @@ T runFordJohnsonAlgorithm(T& container) {
 
   while (inserted_count < static_cast<int>(pending.size())) {
     int element = pending[inserted_count];
-    int pos = runBinarySearch(main_chain, element, 0, static_cast<int>(main_chain.size()));
+    int pos = runBinarySearch(main_chain, element, 0,
+                              static_cast<int>(main_chain.size()));
     main_chain.insert(main_chain.begin() + pos, element);
     inserted_count += 1;
   }
 
   if (!odd.empty()) {
-    int pos = runBinarySearch(main_chain, odd[0], 0, static_cast<int>(main_chain.size()));
+    int pos = runBinarySearch(main_chain, odd[0], 0,
+                              static_cast<int>(main_chain.size()));
     main_chain.insert(main_chain.begin() + pos, odd[0]);
   }
 
