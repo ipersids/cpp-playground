@@ -26,7 +26,9 @@ unsigned int Span::shortestSpan() {
   unsigned int res = std::numeric_limits<unsigned int>::max();
 
   for (size_t i = 0; i < tmp.size() - 1; ++i) {
-    unsigned int current_span = static_cast<unsigned int>(tmp[i + 1] - tmp[i]);
+    unsigned int current_span = static_cast<unsigned int>(
+      static_cast<long int>(tmp[i + 1]) - static_cast<long int>(tmp[i])
+    );
     if (current_span < res) {
       res = current_span;
     }

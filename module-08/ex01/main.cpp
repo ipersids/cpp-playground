@@ -81,9 +81,10 @@ int main() {
   shortest_span = sp.shortestSpan();
   longest_span = sp.longestSpan();
 
+  unsigned int test_case_assert = std::numeric_limits<unsigned int>::max();
+
   assert(shortest_span == 2 && "Error: shortest span fails");
-  unsigned int teat_case = std::numeric_limits<unsigned int>::max();
-  assert(longest_span == teat_case && "Error: longest span fails");
+  assert(longest_span == test_case_assert && "Error: longest span fails");
 
   std::cout << "Shortest span = " << shortest_span << std::endl;
   std::cout << "Longest span = " << longest_span << std::endl;
@@ -99,8 +100,8 @@ int main() {
   shortest_span = stresss_test.shortestSpan();
   longest_span = stresss_test.longestSpan();
 
-  assert(shortest_span == teat_case && "Error: shortest span fails");
-  assert(longest_span == teat_case && "Error: longest span fails");
+  assert(shortest_span == test_case_assert && "Error: shortest span fails");
+  assert(longest_span == test_case_assert && "Error: longest span fails");
 
   std::cout << "Shortest span = " << shortest_span << std::endl;
   std::cout << "Longest span = " << longest_span << std::endl;
@@ -127,17 +128,13 @@ int main() {
 
   Span iter_sp(MAX_SPAN_SIZE);
 
-#ifdef __cpp_concepts
-  auto rang_arr = std::views::iota(0, MAX_SPAN_SIZE);
-#else
   std::vector<int> rang_arr;
   rang_arr.reserve(MAX_SPAN_SIZE);
   for (int i = 0; i < MAX_SPAN_SIZE; ++i) {
     rang_arr.push_back(i);
   }
-#endif
 
-  std::cout << "Display first 15 elements in range of " << MAX_SPAN_SIZE << ":"
+  std::cout << "Display first 15 elements in range:"
             << std::endl;
   int counter = 0;
   for (int i : rang_arr) {
@@ -147,7 +144,7 @@ int main() {
     }
   }
 
-  std::cout << "\n\nFiil Span using range from 0 to " << MAX_SPAN_SIZE << ":"
+  std::cout << "\n\nFill Span using range from 0 to " << MAX_SPAN_SIZE - 1 << ":"
             << std::endl;
   iter_sp.addNumber(rang_arr.begin(), rang_arr.end());
 
